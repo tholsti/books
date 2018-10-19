@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Restaurant;
+use App\Location;
+use App\Country;
 
 class RestaurantController extends Controller
 {
@@ -13,9 +16,32 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $content = view('restaurants/index');
+        $restaurants = Restaurant::orderBy('aggregate_rating', 'desc')
+            ->orderBy('votes', 'desc')
+            ->limit(10)
+            ->groupBy('name', 'id')
+            ->get();
 
-        return $content;
+            $locations = [];
+            $countries = [];
+
+        foreach ($restaurants as $restaurant) {
+            
+            $location_id = $restaurant->location_id;
+            $locations[] = Location::find($location_id);
+
+        }
+
+        foreach ($locations as $location) {
+
+            $country_id = $location->country_id;
+            $countries[] = Country::find($country_id);
+
+        }
+
+        $view = view('restaurants/index')->with(compact('restaurants', 'locations', 'countries'));
+
+        return $view;
     }
 
 

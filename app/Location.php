@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
-    public function restaurants()
+    public function country()
     {
-        return $this->hasMany('App\Restaurant');
+        return $this->hasOne('App\Country');
+    }
+
+    public function city()
+    {
+        return $this->hasOne('App\City');
     }
 }
