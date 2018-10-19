@@ -15,4 +15,6 @@
 //     return view('welcome');
 // });
 
+Route::get('/show/{id}', 'RestaurantController@show');
+
 Route::resource('/', 'RestaurantController');

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    public function restaurants()
+    public function locations()
     {
-        return $this->hasMany('App\Restaurant');
+        return $this->hasMany('App\Locations');
     }
 }
