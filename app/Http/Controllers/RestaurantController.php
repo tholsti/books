@@ -27,12 +27,21 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
+        $restaurant = Restaurant::find($id);
         
+<<<<<<< HEAD
         $content = view('restaurants/index');
 
         return $content;
 
 
         
+=======
+        $content = view('restaurants/show', [
+            
+        ]);
+
+        return $content;
+>>>>>>> aeaacc717a17026d6d1d56b0757212148f760847
     }
 }
