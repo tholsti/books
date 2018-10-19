@@ -6,15 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
-    public function city()
-    {
-        return $this->hasOne('App\City');
-    }
-
-    public function country()
-    {
-        return $this->hasOne('App\Country');
-    }
 
     public function location()
     {
