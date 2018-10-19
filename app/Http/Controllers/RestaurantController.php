@@ -6,22 +6,27 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-   public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $content = view('restaurants/index');
 
-{
-
-$content = view('restaurants/index');
-
-return $content;
-
-}
-
-
-public function show() 
-{
+        return $content;
+    }
 
 
-
-
-}
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        
+    }
 }
