@@ -16,5 +16,6 @@
 // });
 
 Route::get('/show/{id}', 'RestaurantController@show');
+Route::get('/price', 'RestaurantController@price');
 
 Route::resource('/', 'RestaurantController');

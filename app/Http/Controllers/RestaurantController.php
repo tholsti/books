@@ -68,6 +68,20 @@ class RestaurantController extends Controller
             "country" => $country
         ]);
 
-        return $content;
+       return $content;
+
+    }
+
+    public function price()
+    {
+
+        $restaurants = Restaurant::orderBy('average_cost_for_two', 'desc')
+                                ->limit(10)
+                                ->get();
+
+
+        return view('restaurants/prices', compact('restaurants'));
+        
     }
 }
+
