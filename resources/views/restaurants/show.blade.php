@@ -1,10 +1,6 @@
 @extends('restaurants/layout')
 
 @section('content')
-<<<<<<< HEAD
-    bla bla bla
-@endsection
-=======
 <section class="detail_page">
     <h1>{{ $restaurant->name }}</h1>
     <div class="d-flex">
@@ -38,4 +34,3 @@
 
 </section>
 @endsection 
->>>>>>> 703d70b32e6296658740cfac38117c088619339e

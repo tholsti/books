@@ -31,7 +31,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-
+        $restaurant = Restaurant::find($id);
         
         $location_id = $restaurant->location_id;
         $location = Location::find($location_id);
@@ -45,7 +45,7 @@ class RestaurantController extends Controller
             "country" => $country
         ]);
 
-       
+       return $content;
 
     }
 
