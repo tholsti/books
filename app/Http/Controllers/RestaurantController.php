@@ -28,5 +28,11 @@ class RestaurantController extends Controller
     public function show($id)
     {
         
+        $content = view('restaurants/index');
+
+        return $content;
+
+
+        
     }
 }
