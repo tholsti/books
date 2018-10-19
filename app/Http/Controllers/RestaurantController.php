@@ -31,11 +31,23 @@ class RestaurantController extends Controller
 
         
 
-        $content = view('restaurants/index');
+       
 
-        return $content;
+    }
 
+    public function price()
+    {
 
+        $restaurants = Restaurant::orderBy('average_cost_for_two', 'desc')
+                                ->limit(10)
+                                ->get();
+
+          
+                                
+                                dd($restaurants);
+
+        // return view('restaurants/prices', compact('restaurants'));
         
     }
 }
+
