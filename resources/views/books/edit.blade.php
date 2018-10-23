@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{action('BookController@edit')}}" method="post">
+<form action="{{action('BookController@update', [$book->id])}}" method="post">
     <?= csrf_field() ?>
 
     <div class="form-group">

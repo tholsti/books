@@ -44,16 +44,14 @@ class BookController extends Controller
 
     public function update(Request $request, $id)
     {
-        $book = Post::find($id);
+        $book = Book::find($id);
         $book->title = $request->input('title');
         $book->authors = $request->input('authors');
         $book->image = $request->input('image');
         $book->save();
 
-        session()->flash('success_message', 'You have successfully updated the book!');
-        return redirect()->route('/books/edit', [
-            'id' => $book->id
-        ]);
+        return redirect()->action('BookController@edit', [
+            'id' => $book->id])->with('success_message', 'You have successfully updated the book!');
 
 
     }

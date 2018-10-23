@@ -27,7 +27,7 @@ Route::post('/books', "BookController@store");
 
 Route::get('/books/edit/{id}', "BookController@edit");
 
-Route::post('/books/update', "BookController@update");
+Route::post('/books/update/{id}', "BookController@update");
 
 Route::get('/books/delete', "BookController@delete");
 
