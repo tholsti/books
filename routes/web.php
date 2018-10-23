@@ -11,11 +11,16 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/books', "BookController@index");
 
-Route::get('/show/{id}', 'RestaurantController@show');
-Route::get('/price', 'RestaurantController@price');
+Auth::routes();
 
-Route::resource('/', 'RestaurantController');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/public', 'PublicController@index');
+
+Route::get('/private', 'PrivateController@index');
+
+Route::get('/books/create', "BookController@create");
+
+Route::post('/books', "BookController@store");
