@@ -12,4 +12,8 @@ class Book extends Model
         'authors',
         'image'
     ];
+
+    public function genre(){
+        return $this->hasOne('App\Genre');
+    }
 }

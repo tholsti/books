@@ -25,10 +25,12 @@ Route::get('/books/create', "BookController@create");
 
 Route::post('/books', "BookController@store");
 
+Route::get('/books', "BookController@index");
+
 Route::get('/books/edit/{id}', "BookController@edit");
 
-Route::post('/books/update/{id}', "BookController@update");
+Route::post('/books/edit/{id}', "BookController@update");
 
-Route::get('/books/delete', "BookController@delete");
+Route::get('/books/delete/{id}', "BookController@delete");
 
-Route::get('/books/show', "BookController@show");
+Route::get('/books/show/{id}', "BookController@show");

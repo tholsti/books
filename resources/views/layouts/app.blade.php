@@ -21,6 +21,8 @@
     <link href="{{ asset('css/books.css') }}" rel="stylesheet">
 </head>
 <body>
+        @include('books/success_messages')
+      
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">

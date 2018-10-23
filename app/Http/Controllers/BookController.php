@@ -49,24 +49,27 @@ class BookController extends Controller
         $book->authors = $request->input('authors');
         $book->image = $request->input('image');
         $book->save();
-
+        session()->flash('success_message', 'You have successfully updated the book!');
         return redirect()->action('BookController@edit', [
-            'id' => $book->id])->with('success_message', 'You have successfully updated the book!');
+            'id' => $book->id]);
 
 
     }
 
-    public function delete()
+    public function delete($id)
     {
-
-
+        $book = Book::find($id);
+        $book->delete();
+        session()->flash('success_message', 'You have successfully deleted the book!');
+        return redirect()->action('BookController@index');
 
     }
 
-    public function show()
+    public function show($id)
     {
 
-
+        $book =  Book::find($id);
+        return view('books.show')->with('book', $book);
 
     }
 
