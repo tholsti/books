@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\Genre;
+
 
 class BookController extends Controller
 {
@@ -14,10 +16,12 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = Book::limit(100)->get();
-        
+        $books = Book::limit(100)->offset(1000)->get();
+        $genres = Genre::get();
+
         return view("books/index", [
-            "books" => $books
+            "books" => $books,
+            "genres" => $genres
         ]);
     }
 
