@@ -24,3 +24,11 @@ Route::get('/private', 'PrivateController@index');
 Route::get('/books/create', "BookController@create");
 
 Route::post('/books', "BookController@store");
+
+Route::get('/books/edit/{id}', "BookController@edit");
+
+Route::post('/books/update', "BookController@update");
+
+Route::get('/books/delete', "BookController@delete");
+
+Route::get('/books/show', "BookController@show");

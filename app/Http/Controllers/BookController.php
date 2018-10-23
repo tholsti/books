@@ -33,4 +33,44 @@ class BookController extends Controller
         return $book;
 
     }
+
+    public function edit($id)
+    {
+        $book = Book::find($id);
+        $view = view('books/edit', compact('book'));
+        return $view;
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $book = Post::find($id);
+        $book->title = $request->input('title');
+        $book->authors = $request->input('authors');
+        $book->image = $request->input('image');
+        $book->save();
+
+        session()->flash('success_message', 'You have successfully updated the book!');
+        return redirect()->route('/books/edit', [
+            'id' => $book->id
+        ]);
+
+
+    }
+
+    public function delete()
+    {
+
+
+
+    }
+
+    public function show()
+    {
+
+
+
+    }
+
+   
 }
